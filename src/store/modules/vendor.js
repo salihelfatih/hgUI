@@ -15,6 +15,10 @@ export default {
       const response = await VendorService.index(search);
       commit("SET_VENDORS", response.data);
     },
+    async isVendor({ commit }, id) {
+      const response = await VendorService.show(id);
+      commit("SET_VENDOR", response.data);
+    },
 
     getVendor({ commit }, vendorId) {
       VendorService.show(vendorId).then((response) => {
@@ -54,8 +58,20 @@ export default {
     SET_VENDOR(state, vendor) {
       state.vendor = vendor;
     },
-    // SET_VENDOR_PRODUCTS(state, vendorProducts) {
-    //   state.vendorProducts = vendorProducts;
-    // },
+    ADD_VENDOR(state, vendor) {
+      state.vendors.push(vendor);
+    },
+    UPDATE_VENDOR(state, vendor) {
+      const index = state.vendors.findIndex((v) => v.id === vendor.id);
+      if (index !== -1) {
+        state.vendors.splice(index, 1, vendor);
+      }
+    },
+    DELETE_VENDOR(state, vendorId) {
+      state.vendors = state.vendors.filter((v) => v.id !== vendorId);
+    },
+    DELETE_ALL_VENDORS(state) {
+      state.vendors = [];
+    },
   },
 };

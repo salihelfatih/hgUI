@@ -142,9 +142,13 @@ export default {
           zipCode: this.zipCode,
           profilePic: this.profilePic,
         });
-        this.$router.push("/login");
+        if (this.$store.state.auth.customer) {
+          this.$router.push("/login");
+        } else {
+          this.error = "Invalid registration information";
+        }
       } catch (error) {
-        this.error = error.response.data.message;
+        this.error = error.response.data.error;
       }
     },
   },

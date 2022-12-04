@@ -25,15 +25,13 @@ export default {
     return Api().get(`products/${productId}`);
   },
 
-  // post(product) {
-  //   return Api().post("products", product);
-  // },
-  // put(product) {
-  //   return Api().put(`products/${product.id}`, product);
-  // },
-  // delete(productId) {
-  //   return Api().delete(`products/${productId}`);
-  // },
-  // filter(filter) {
-  //   return Api().get(`products?filter=${filter}`);
+  post(product) {
+    return Api().post("products", product);
+  },
+  put(product) {
+    return Api().put(`products/${product.id}`, product);
+  },
+  delete(productId) {
+    return Api().delete(`products/${productId}`);
+  },
 };

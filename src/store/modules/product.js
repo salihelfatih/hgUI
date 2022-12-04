@@ -192,5 +192,20 @@ export default {
     SET_PRODUCT(state, product) {
       state.product = product;
     },
+    ADD_PRODUCT(state, product) {
+      state.products.push(product);
+    },
+    UPDATE_PRODUCT(state, product) {
+      const index = state.products.findIndex((p) => p.id === product.id);
+      if (index !== -1) {
+        state.products.splice(index, 1, product);
+      }
+    },
+    DELETE_PRODUCT(state, productId) {
+      state.products = state.products.filter((p) => p.id !== productId);
+    },
+    DELETE_ALL_PRODUCTS(state) {
+      state.products = [];
+    },
   },
 };

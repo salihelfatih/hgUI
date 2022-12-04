@@ -168,7 +168,11 @@ export default {
           kitchenCategory: this.kitchenCategory,
           kitchenDescription: this.kitchenDescription,
         });
-        this.$router.push("/vendors/login");
+        if (this.$store.state.auth.vendor) {
+          this.$router.push("/vendors/login");
+        } else {
+          this.error = "Invalid registration information";
+        }
       } catch (error) {
         this.error = error.response.data.message;
       }
