@@ -22,6 +22,3 @@ export default {
     },
   },
 };
-
-// state.notifications = state.notifications.filter(notification => {
-//        return notification.id != notificationToRemove.id;

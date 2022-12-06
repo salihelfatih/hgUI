@@ -1,10 +1,6 @@
 import Api from "@/services/Api";
 
 export default {
-  // index() {
-  //   return Api().get("products");
-  // },
-
   // get all products for a vendor
   async index(vendorId, search, price, calories) {
     try {
@@ -33,5 +29,12 @@ export default {
   },
   delete(productId) {
     return Api().delete(`products/${productId}`);
+  },
+  deleteAll() {
+    return Api().delete("products");
+  },
+
+  findAllProducts() {
+    return Api().get("products");
   },
 };

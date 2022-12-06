@@ -189,10 +189,14 @@ export default {
       loggedIn: "auth/loggedIn",
       customer: "auth/customer",
       vendor: "auth/vendor",
+      // get the cart from the store
+      cart: "cart/carts",
     }),
+
     cartCount() {
       return this.$store.getters["cart/cartCount"];
     },
+
     currentRouteName() {
       return this.$route.name;
     },
@@ -207,14 +211,20 @@ export default {
     },
     goToFaves() {
       if (this.customer) {
-        this.$router.push("/customers/" + this.customer.id + "/faves");
+        this.$router.push({
+          name: "view-faves",
+          params: { customerId: this.customer.id },
+        });
       } else {
         this.$router.push("/login");
       }
     },
     goToCart() {
       if (this.customer) {
-        this.$router.push("/customers/" + this.customer.id + "/cart");
+        this.$router.push({
+          name: "view-cart",
+          params: { customerId: this.customer.id },
+        });
       } else {
         this.$router.push("/login");
       }

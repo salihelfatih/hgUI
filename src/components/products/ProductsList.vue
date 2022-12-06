@@ -41,7 +41,9 @@ export default {
 
   watch: {
     products() {
-      this.$store.dispatch("product/getProducts");
+      this.$watch("$route.query", () => {
+        this.getProducts();
+      });
     },
 
     "$route.query.search": {

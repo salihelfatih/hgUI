@@ -13,9 +13,6 @@ import customer from "./modules/customer";
 import auth from "./modules/auth";
 import order from "./modules/order";
 import report from "./modules/report";
-// import user from "./modules/user";
-// import order from "./modules/order";
-// import auth from "./modules/auth";
 
 export default new Vuex.Store({
   strict: true,

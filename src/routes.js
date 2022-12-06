@@ -198,7 +198,7 @@ export default [
     component: FavesPage,
   },
   {
-    path: "/customers/:customerId/cart",
+    path: "/customers/:customerId/carts",
     name: "view-cart",
     component: CartPage,
     props: true,
@@ -238,6 +238,12 @@ export default [
   //   props: true,
   // },
   // {
+  //   path: "/order/:orderId/decline",
+  //   name: "decline-order",
+  //   component: DeclineOrder,
+  //   props: true,
+  // },
+  // {
   //   path: "/order/:orderId/complete",
   //   name: "complete-order",
   //   component: CompleteOrder,
@@ -247,18 +253,6 @@ export default [
   //   path: "/order/:orderId/cancel",
   //   name: "cancel-order",
   //   component: CancelOrder,
-  //   props: true,
-  // },
-  // {
-  //   path: "/order/:orderId/decline",
-  //   name: "decline-order",
-  //   component: DeclineOrder,
-  //   props: true,
-  // },
-  // {
-  //   path: "/order/:orderId/accept",
-  //   name: "accept-order",
-  //   component: AcceptOrder,
   //   props: true,
   // },
 ];
