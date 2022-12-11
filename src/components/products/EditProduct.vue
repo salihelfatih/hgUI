@@ -1,5 +1,5 @@
 <template>
-  <panel title="Edit Product">
+  <panel v-if="loggedIn && vendor" title="Edit Product">
     <!-- <v-text-field
       v-model="product.vendorId"
       label="Vendor Id"
@@ -77,6 +77,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import Panel from "@/components/globals/PanelBox";
 import ProductService from "@/services/ProductService";
 
@@ -120,6 +121,13 @@ export default {
         console.log(err);
       }
     },
+  },
+
+  computed: {
+    ...mapGetters({
+      loggedIn: "auth/loggedIn",
+      vendor: "auth/vendor",
+    }),
   },
 
   components: {

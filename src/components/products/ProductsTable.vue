@@ -2,7 +2,6 @@
   <div>
     <v-card v-if="loggedIn && vendor">
       <v-data-table
-        v-if="loggedIn && vendor"
         :headers="headers"
         :items="products"
         sort-by="stock"

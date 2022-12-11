@@ -1,5 +1,5 @@
 <template>
-  <div class="row mt-5" v-if="vendor">
+  <div class="row mt-5" v-if="loggedIn && vendor">
     <div class="col-md-12">
       <v-card>
         <v-toolbar color="grey lighten-3">
@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapGetters, mapState, mapActions } from "vuex";
 
 export default {
   name: "vendor-dashboard",
@@ -112,6 +112,10 @@ export default {
     ...mapState("product", ["products"]),
     ...mapState("order", ["orders"]),
     ...mapState("report", ["reports"]),
+    ...mapGetters({
+      loggedIn: "auth/loggedIn",
+      vendor: "auth/vendor",
+    }),
   },
 
   mounted() {
